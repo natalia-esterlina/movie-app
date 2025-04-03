@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Eliminar Película</h2>
+<mat-dialog-content>
+  <p>¿Está seguro de que desea eliminar la película "{{ data.movie.title }}"?</p>
+  <p class="warning">Esta acción no se puede deshacer.</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">
+    Eliminar
+  </button>
+</mat-dialog-actions>

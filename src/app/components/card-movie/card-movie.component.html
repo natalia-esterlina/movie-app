@@ -1,0 +1,16 @@
+<mat-card class="movie-card">
+  <div class="movie-image-container" (click)="openMovieDetail()">
+    <img mat-card-image [src]="movie.image" [alt]="movie.title" class="interactive-image">
+    <div class="image-overlay">
+      <mat-icon>visibility</mat-icon>
+    </div>
+  </div>
+  <mat-card-header>
+    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <app-movie-actions-menu [movie]="movie"></app-movie-actions-menu>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ getFormattedGenres() }}</p>
+  </mat-card-content>
+  <app-favorite-button [movie]="movie"></app-favorite-button>
+</mat-card>

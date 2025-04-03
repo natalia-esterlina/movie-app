@@ -1,0 +1,7 @@
+<button mat-fab
+        [color]="isFavorite ? 'warn' : 'primary'"
+        (click)="toggleFavorite()"
+        [matTooltip]="isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+        class="favorite-button">
+    <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+</button>

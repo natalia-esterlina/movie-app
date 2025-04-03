@@ -1,0 +1,23 @@
+<div class="movie-page">
+	<mat-tab-group (selectedTabChange)="onTabChange($event)" [selectedIndex]="selectedTab">
+		<mat-tab label="Ver todas"></mat-tab>
+		<mat-tab label="Favoritas"></mat-tab>
+	</mat-tab-group>
+	@if (isAllMoviesTab) {
+		<div class="button-container">
+			<button mat-raised-button color="primary" (click)="openAddMovieModal()" class="add-movie-button">
+				<mat-icon class="icon">add</mat-icon>
+				<span class="text">Agregar película</span>
+			</button>
+		</div>
+	}
+	@if (isLoading) {
+		<mat-spinner class="loading-spinner"></mat-spinner>
+	} @else if (error) {
+		<div class="error">{{ error }}</div>
+	} @else {
+		<app-movies-list
+			[movies]="isAllMoviesTab ? (movies$ | async) || [] : (favoriteMovies$ | async) || []" >
+  		</app-movies-list>
+	}
+</div>

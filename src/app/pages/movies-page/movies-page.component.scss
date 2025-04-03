@@ -1,0 +1,32 @@
+.movie-page {
+  padding: 20px;
+
+  .loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .add-movie-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    
+    .icon {
+      font-size: 20px;
+    }
+
+    .text {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}

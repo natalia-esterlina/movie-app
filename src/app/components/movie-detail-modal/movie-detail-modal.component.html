@@ -1,0 +1,47 @@
+<div class="movie-detail-container">
+  <div class="movie-detail-header">
+    <h2 mat-dialog-title>{{ movie.title }}</h2>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <mat-dialog-content>
+    <div class="movie-detail-content">
+      <div class="movie-image">
+        <img [src]="movie.image" [alt]="movie.title">
+      </div>
+      
+      <div class="movie-info">
+        <p class="description">{{ movie.description }}</p>
+        
+        <div class="genres" *ngIf="movie.genres.length">
+          <p class="genres-title">Géneros:</p>
+          <mat-chip-list>    
+            <mat-chip *ngFor="let genre of movie.genres" disabled>
+              {{ genre.name }}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+
+        <div class="additional-info">
+          <div class="info-item" *ngIf="movie.releaseYear">
+            <mat-icon>calendar_today</mat-icon>
+            <span>Año de estreno: {{ movie.releaseYear }}</span>
+          </div>
+
+          <div class="info-item" *ngIf="movie.rating">
+            <mat-icon>star</mat-icon>
+            <span>Rating: {{ movie.rating }}/100</span>
+          </div>
+
+          <div class="info-item" *ngIf="movie.duration">
+            <mat-icon>schedule</mat-icon>
+            <span>Duración: {{ movie.duration }} minutos</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div> 

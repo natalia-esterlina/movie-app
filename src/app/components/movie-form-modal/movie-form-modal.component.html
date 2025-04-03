@@ -1,0 +1,55 @@
+<h2 mat-dialog-title class="title-modal">{{titleForm}}</h2>
+<mat-dialog-content class="content-modal">
+  <form #movieForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Título</mat-label>
+      <input matInput [(ngModel)]="movie.title" name="title" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+      <mat-label>URL de la Imagen</mat-label>
+      <input  
+        matInput
+        [(ngModel)]="movie.image"
+        name="image"
+        required
+        [value]="movie.image"
+        pattern=".*\.(jpg|jpeg|png|svg)|.*(jpg|jpeg|png|svg).*"
+      >
+      <mat-error *ngIf="movieForm.form.get('image')?.hasError('pattern')">
+        La URL debe ser de una imagen (.jpg, .jpeg, .png o .svg).
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <textarea matInput [(ngModel)]="movie.description" name="description" rows="3"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Géneros (separados por coma)</mat-label>
+      <input matInput [(ngModel)]="genreInput" name="genres" (ngModelChange)="updateGenres()">
+    </mat-form-field>
+
+    <div class="additional-fields">
+      <mat-form-field appearance="fill">
+        <mat-label>Año de estreno</mat-label>
+        <input matInput type="number" [(ngModel)]="movie.releaseYear" name="releaseYear">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Duración (minutos)</mat-label>
+        <input matInput type="number" [(ngModel)]="movie.duration" name="duration">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Rating</mat-label>
+        <input matInput type="number" [(ngModel)]="movie.rating" name="rating" min="0" max="100" step="1">
+      </mat-form-field>
+
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!movieForm.form.valid">
+    Guardar
+  </button>
+</mat-dialog-actions>
