@@ -34,7 +34,7 @@ Add the following content:
 export const environment = {
   production: false,
   apiKey: 'YOUR_API_KEY_HERE',
-  apiUrl: 'https://api.streamingavailability.com](https://streaming-availability.p.rapidapi.com/shows'
+  apiUrl: 'https://streaming-availability.p.rapidapi.com/shows'
 };
 ```
 
