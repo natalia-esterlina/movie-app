@@ -30,12 +30,13 @@ This project is a movie app that provides a list of movies where you can view de
 Create a new file src/environments/environment.ts
 
 Add the following content:
-
+```ts
 export const environment = {
   production: false,
   apiKey: 'YOUR_API_KEY_HERE',
   apiUrl: 'https://api.streamingavailability.com](https://streaming-availability.p.rapidapi.com/shows'
 };
+```
 
 Replace 'YOUR_API_KEY_HERE' with your actual API key.
 
